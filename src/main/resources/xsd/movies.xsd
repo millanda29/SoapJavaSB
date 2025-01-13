@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.service.com/movieapi/gen"
+           targetNamespace="http://www.service.com/movieapi/gen" elementFormDefault="qualified">
+
+    <!-- Find All Movies -->
+    <xs:element name="getMoviesRequest">
+        <xs:complexType>
+            <xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getMoviesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="movies" type="tns:movie" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Find Movie by ID -->
+    <xs:element name="getMovieByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getMovieByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="movie" type="tns:movie"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Save Movie -->
+    <xs:element name="postMovieRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="movie" type="tns:movie"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="postMovieResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="movie" type="tns:movie"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Update Movie -->
+    <xs:element name="putMovieRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="movie" type="tns:movie"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="putMovieResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="movie" type="tns:movie"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Delete Movie -->
+    <xs:element name="deleteMovieRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteMovieResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="result" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Movie Complex Type -->
+    <xs:complexType name="movie">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="director" type="xs:string"/>
+            <xs:element name="year" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
